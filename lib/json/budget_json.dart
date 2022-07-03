@@ -1,4 +1,4 @@
-import 'package:budget_tracker_ui/theme/colors.dart';
+import 'package:bulma_expense_manager/theme/colors.dart';
 
 const List budget_json = [
   {

@@ -1,4 +1,4 @@
-package com.example.budget_tracker_ui
+package com.example.bulma_expense_manager
 
 import io.flutter.embedding.android.FlutterActivity
 

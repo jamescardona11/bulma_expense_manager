@@ -1,4 +1,4 @@
-import 'package:budget_tracker_ui/theme/colors.dart';
+import 'package:bulma_expense_manager/theme/colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
@@ -15,47 +15,50 @@ LineChartData mainData() {
             strokeWidth: 0.1,
           );
         }),
-    titlesData: FlTitlesData(
-      show: true,
-      bottomTitles: SideTitles(
-        showTitles: true,
-        reservedSize: 22,
-        getTextStyles: (value) =>
-            const TextStyle(color: Color(0xff68737d), fontSize: 12),
-        getTitles: (value) {
-          switch (value.toInt()) {
-            case 2:
-              return '1';
-            case 5:
-              return '11';
-            case 8:
-              return '21';
-          }
-          return '';
-        },
-        margin: 8,
-      ),
-      leftTitles: SideTitles(
-        showTitles: true,
-        getTextStyles: (value) => const TextStyle(
-          color: Color(0xff67727d),
-          fontSize: 12,
-        ),
-        getTitles: (value) {
-          switch (value.toInt()) {
-            case 1:
-              return '10k';
-            case 3:
-              return '50k';
-            case 5:
-              return '100k';
-          }
-          return '';
-        },
-        reservedSize: 28,
-        margin: 12,
-      ),
-    ),
+    // titlesData: FlTitlesData(
+    //   show: true,
+    //   bottomTitles: SideTitles(
+    //     showTitles: true,
+    //     reservedSize: 22,
+    //     getTitlesWidget: GetTitleWidgetFunction(
+
+    //     ),
+    //     getTextStyles: (value) =>
+    //         const TextStyle(color: Color(0xff68737d), fontSize: 12),
+    //     getTitles: (value) {
+    //       switch (value.toInt()) {
+    //         case 2:
+    //           return '1';
+    //         case 5:
+    //           return '11';
+    //         case 8:
+    //           return '21';
+    //       }
+    //       return '';
+    //     },
+    //     margin: 8,
+    //   ),
+    //   leftTitles: SideTitles(
+    //     showTitles: true,
+    //     getTextStyles: (value) => const TextStyle(
+    //       color: Color(0xff67727d),
+    //       fontSize: 12,
+    //     ),
+    //     getTitles: (value) {
+    //       switch (value.toInt()) {
+    //         case 1:
+    //           return '10k';
+    //         case 3:
+    //           return '50k';
+    //         case 5:
+    //           return '100k';
+    //       }
+    //       return '';
+    //     },
+    //     reservedSize: 28,
+    //     margin: 12,
+    //   ),
+    // ),
     borderData: FlBorderData(
       show: false,
     ),
@@ -75,7 +78,7 @@ LineChartData mainData() {
           FlSpot(11, 4),
         ],
         isCurved: true,
-        colors: gradientColors,
+        // colors: gradientColors,
         barWidth: 3,
         isStrokeCapRound: true,
         dotData: FlDotData(
