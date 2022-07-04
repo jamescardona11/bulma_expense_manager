@@ -17,9 +17,7 @@ class MenuMobileNotifier extends StateNotifier<List<MenuItemUIM>> {
 
   void changeTab(int index) => toggle(state[index].route);
 
-  Iterable<IconData> get iconsData => state.map((e) => e.icon);
-
-  // List<MenuItemUIM> get currentState => state;
+  List<MenuItemUIM> get currentState => state;
 }
 
 class MenuMobileProvider {

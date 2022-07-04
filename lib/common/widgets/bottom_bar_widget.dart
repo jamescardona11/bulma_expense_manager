@@ -1,3 +1,4 @@
+import 'package:bulma_expense_manager/common/ui_models/menu_item.dart';
 import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -7,19 +8,17 @@ class BottomBarWidget extends StatefulWidget {
   /// default constructor
   const BottomBarWidget({
     Key? key,
-    required this.activeIndex,
+    required this.index,
     required this.onTap,
-    required this.icons,
-    this.indexSpecial = -1,
+    required this.items,
     this.backgroundColor = kWhite,
     this.splashColor = kPrimary,
     this.activeColor = kPrimary,
     this.inactiveColor = kGrey,
   }) : super(key: key);
 
-  final int activeIndex;
-  final int indexSpecial;
-  final List<IconData> icons;
+  final int index;
+  final List<MenuItemUIM> items;
   final Color backgroundColor;
   final Color splashColor;
   final Color activeColor;
@@ -56,24 +55,24 @@ class _BottomBarWidgetState extends State<BottomBarWidget>
 
   List<Widget> _getItems() {
     final items = <Widget>[];
-    for (int i = 0; i < widget.icons.length; i++) {
-      final isActive = widget.activeIndex == i;
-
+    for (int i = 0; i < widget.items.length; i++) {
+      final item = widget.items[i];
       items.add(
         NavigationBarItem(
-          isActive: isActive,
+          isActive: item.isSelected,
           bubbleRadius: _bubbleRadius,
           maxBubbleRadius: splashRadius,
           bubbleColor: widget.splashColor,
           iconScale: _iconScale,
           onTap: () => widget.onTap(i),
           child: Builder(builder: (context) {
-            if (widget.indexSpecial == i) {
+            if (item.isSpecial) {
               return _especialItem(
-                _getIcon(widget.icons[i], isActive),
+                item.icon,
+                item.isSelected,
               );
             }
-            return _getIcon(widget.icons[i], isActive);
+            return _getIcon(item.icon, item.isSelected);
           }),
         ),
       );
@@ -82,8 +81,22 @@ class _BottomBarWidgetState extends State<BottomBarWidget>
     return items;
   }
 
-  Widget _getIcon(IconData iconData, bool isActive) {
-    final color = isActive ? widget.activeColor : widget.inactiveColor;
+  @override
+  void dispose() {
+    _bubbleController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(BottomBarWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.index != oldWidget.index) {
+      _startBubbleAnimation();
+    }
+  }
+
+  Widget _getIcon(IconData iconData, bool isSelected) {
+    final color = isSelected ? widget.activeColor : widget.inactiveColor;
     return Icon(
       iconData,
       size: 24,
@@ -91,22 +104,16 @@ class _BottomBarWidgetState extends State<BottomBarWidget>
     );
   }
 
-  Widget _especialItem(Widget icon) => Container(
+  Widget _especialItem(IconData iconData, bool isSelected) => Container(
       width: 45,
       height: 50,
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(Radius.circular(16)),
         color: Colors.white,
       ),
       child: Center(
-        child: icon,
+        child: _getIcon(iconData, isSelected),
       ));
-
-  @override
-  void dispose() {
-    _bubbleController.dispose();
-    super.dispose();
-  }
 
   void _startBubbleAnimation() {
     _bubbleController = AnimationController(
@@ -138,13 +145,5 @@ class _BottomBarWidgetState extends State<BottomBarWidget>
       _bubbleController.reset();
     }
     _bubbleController.forward();
-  }
-
-  @override
-  void didUpdateWidget(BottomBarWidget oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.activeIndex != oldWidget.activeIndex) {
-      _startBubbleAnimation();
-    }
   }
 }

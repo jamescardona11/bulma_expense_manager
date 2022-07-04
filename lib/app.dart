@@ -2,10 +2,8 @@ import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:bulma_expense_manager/common/providers/menu_provider.dart';
 import 'package:bulma_expense_manager/common/widgets/bottom_bar_widget.dart';
-import 'package:bulma_expense_manager/pages/budget_page.dart';
 import 'package:bulma_expense_manager/pages/create_budge_page.dart';
 import 'package:bulma_expense_manager/pages/daily_page.dart';
-import 'package:bulma_expense_manager/pages/profile_page.dart';
 import 'package:bulma_expense_manager/pages/stats_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -43,10 +41,9 @@ class _AppState extends ConsumerState<App> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: BottomBarWidget(
-                activeIndex: indexMenu,
+                index: indexMenu,
                 backgroundColor: kBlueBlack,
-                indexSpecial: 1,
-                icons: ref.read(menuProvider.notifier).iconsData.toList(),
+                items: ref.read(menuProvider.notifier).currentState,
                 onTap: ref.read(menuProvider.notifier).changeTab,
               ),
             ),
@@ -71,31 +68,6 @@ class _AppState extends ConsumerState<App> {
           ),
         ],
       ),
-      // bottomNavigationBar: BottomBarWidget(
-      //   index: indexMenu,
-      //   iconsData: ref.read(menuProvider.notifier).iconsData.toList(),
-      //   onTap: ref.read(menuProvider.notifier).changeTab,
-      // ),
-      // floatingActionButton: floatingButton,
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
-
-  Widget get floatingButton => FloatingActionButton(
-        backgroundColor: kWhite,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(19.0),
-          ),
-        ),
-        onPressed: () {
-          ref.read(menuProvider.notifier).changeTab(4);
-        },
-        child: const Icon(
-          Icons.add,
-          size: 25,
-          color: kBlueBlack,
-        ),
-        //params
-      );
 }
