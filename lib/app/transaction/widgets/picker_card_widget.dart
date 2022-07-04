@@ -2,52 +2,78 @@ import 'package:bulma_expense_manager/config/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class PickerCardWidget extends StatelessWidget {
+enum PickerOptionStatus {
+  expense(0),
+  income(1),
+  move(2);
+
+  final int value;
+
+  const PickerOptionStatus(this.value);
+}
+
+class PickerCardWidget extends StatefulWidget {
   /// default constructor
   const PickerCardWidget({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<PickerCardWidget> createState() => _PickerCardWidgetState();
+}
+
+class _PickerCardWidgetState extends State<PickerCardWidget> {
+  final pickerOption = ValueNotifier<PickerOptionStatus?>(null);
+
+  @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 80,
-      child: Card(
-        elevation: 8,
-        color: kWhite,
-        shape: const RoundedRectangleBorder(
-          borderRadius: kBorderRadius25,
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: _TextBox(
-                label: 'Gasto',
-                icon: FontAwesomeIcons.moneyBillTrendUp,
-                iconColor: kRed,
-                onPressed: () {},
-                isSelected: true,
+    return ValueListenableBuilder<PickerOptionStatus?>(
+      valueListenable: pickerOption,
+      builder: (_, option, child) => SizedBox(
+        height: 80,
+        child: Card(
+          elevation: 8,
+          color: kWhite,
+          shape: const RoundedRectangleBorder(
+            borderRadius: kBorderRadius25,
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: _TextBox(
+                  label: 'Gasto',
+                  icon: FontAwesomeIcons.moneyBillTrendUp,
+                  iconColor: kRed,
+                  onPressed: () {
+                    pickerOption.value = PickerOptionStatus.expense;
+                  },
+                  isSelected: PickerOptionStatus.expense == option,
+                ),
               ),
-            ),
-            Expanded(
-              child: _TextBox(
-                label: 'Ingreso',
-                icon: FontAwesomeIcons.sackDollar,
-                iconColor: kGreen,
-                onPressed: () {},
-                isSelected: true,
+              Expanded(
+                child: _TextBox(
+                  label: 'Ingreso',
+                  icon: FontAwesomeIcons.sackDollar,
+                  iconColor: kGreen,
+                  onPressed: () {
+                    pickerOption.value = PickerOptionStatus.income;
+                  },
+                  isSelected: PickerOptionStatus.income == option,
+                ),
               ),
-            ),
-            Expanded(
-              child: _TextBox(
-                label: 'Mover',
-                icon: FontAwesomeIcons.vault,
-                onPressed: () {},
-                iconColor: kBlue,
-                isSelected: true,
+              Expanded(
+                child: _TextBox(
+                  label: 'Mover',
+                  icon: FontAwesomeIcons.vault,
+                  onPressed: () {
+                    pickerOption.value = PickerOptionStatus.move;
+                  },
+                  iconColor: kBlue,
+                  isSelected: PickerOptionStatus.move == option,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -78,7 +104,10 @@ class _TextBox extends StatelessWidget {
           width: constraints.maxWidth,
           height: constraints.maxHeight,
           child: Padding(
-            padding: const EdgeInsets.all(4.0),
+            padding: const EdgeInsets.symmetric(
+              vertical: 4,
+              horizontal: 4,
+            ),
             child: DecoratedBox(
               decoration: BoxDecoration(
                 color: isSelected ? kBlueBlack : kWhite,
@@ -91,7 +120,7 @@ class _TextBox extends StatelessWidget {
                     overlayColor:
                         MaterialStateProperty.all(kGrey.withOpacity(0.3)),
                   ),
-                  onPressed: () {},
+                  onPressed: onPressed,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
