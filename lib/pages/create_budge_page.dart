@@ -1,7 +1,6 @@
 import 'package:bulma_expense_manager/json/create_budget_json.dart';
 import 'package:bulma_expense_manager/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class CreatBudgetPage extends StatefulWidget {
   @override
@@ -52,7 +51,7 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                             color: black),
                       ),
                       Row(
-                        children: [Icon(AntDesign.search1)],
+                        children: [Icon(Icons.search)],
                       )
                     ],
                   ),

@@ -18,12 +18,27 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.17.5 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_icons: ^1.1.0
+  #DB
+  objectbox: ^1.6.0
+  objectbox_flutter_libs: ^1.6.0
+  # sembast: ^3.2.0+1
+
+   #UI
+  
+  #DB
+  
+
+  #http
+
+  #state
+
+  #misc
+  
   page_transition: ^2.0.9
   animated_bottom_navigation_bar: ^1.0.0
   fl_chart: ^0.55.0
@@ -32,6 +47,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner: ^2.0.0
+  objectbox_generator: ^1.6.0
+  flutter_lints: ^2.0.0
+  dart_code_metrics: ^4.15.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -69,3 +88,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+scripts: derry.yaml

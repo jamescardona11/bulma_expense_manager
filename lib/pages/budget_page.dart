@@ -2,7 +2,6 @@ import 'package:bulma_expense_manager/json/budget_json.dart';
 import 'package:bulma_expense_manager/json/day_month.dart';
 import 'package:bulma_expense_manager/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class BudgetPage extends StatefulWidget {
   @override
@@ -58,7 +57,7 @@ class _BudgetPageState extends State<BudgetPage> {
                           SizedBox(
                             width: 20,
                           ),
-                          Icon(AntDesign.search1)
+                          Icon(Icons.search)
                         ],
                       )
                     ],

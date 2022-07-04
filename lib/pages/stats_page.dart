@@ -3,7 +3,6 @@ import 'package:bulma_expense_manager/theme/colors.dart';
 import 'package:bulma_expense_manager/widget/chart.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 class StatsPage extends StatefulWidget {
@@ -67,7 +66,7 @@ class _StatsPageState extends State<StatsPage> {
                             fontWeight: FontWeight.bold,
                             color: black),
                       ),
-                      Icon(AntDesign.search1)
+                      Icon(Icons.search)
                     ],
                   ),
                   SizedBox(

@@ -1,6 +1,6 @@
 import 'package:bulma_expense_manager/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
+
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             fontWeight: FontWeight.bold,
                             color: black),
                       ),
-                      Icon(AntDesign.setting)
+                      Icon(Icons.settings)
                     ],
                   ),
                   SizedBox(

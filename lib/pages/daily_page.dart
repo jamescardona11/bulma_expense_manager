@@ -2,7 +2,6 @@ import 'package:bulma_expense_manager/json/daily_json.dart';
 import 'package:bulma_expense_manager/json/day_month.dart';
 import 'package:bulma_expense_manager/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 class DailyPage extends StatefulWidget {
   @override
@@ -48,7 +47,7 @@ class _DailyPageState extends State<DailyPage> {
                             fontWeight: FontWeight.bold,
                             color: black),
                       ),
-                      Icon(AntDesign.search1)
+                      Icon(Icons.search)
                     ],
                   ),
                   SizedBox(

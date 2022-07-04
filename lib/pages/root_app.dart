@@ -5,7 +5,6 @@ import 'package:bulma_expense_manager/pages/profile_page.dart';
 import 'package:bulma_expense_manager/pages/stats_page.dart';
 import 'package:bulma_expense_manager/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 
 class RootApp extends StatefulWidget {
@@ -63,10 +62,10 @@ class _RootAppState extends State<RootApp> {
 
   Widget getFooter() {
     List<IconData> iconItems = [
-      Ionicons.md_calendar,
-      Ionicons.md_stats,
-      Ionicons.md_wallet,
-      Ionicons.ios_person,
+      Icons.calendar_month,
+      Icons.graphic_eq,
+      Icons.ac_unit,
+      Icons.person,
     ];
 
     return AnimatedBottomNavigationBar(
