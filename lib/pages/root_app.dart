@@ -1,47 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:bulma_expense_manager/common/providers/menu_provider.dart';
 import 'package:bulma_expense_manager/common/widgets/bottom_bar_widget.dart';
 import 'package:bulma_expense_manager/pages/budget_page.dart';
 import 'package:bulma_expense_manager/pages/create_budge_page.dart';
 import 'package:bulma_expense_manager/pages/daily_page.dart';
 import 'package:bulma_expense_manager/pages/profile_page.dart';
 import 'package:bulma_expense_manager/pages/stats_page.dart';
-import 'package:bulma_expense_manager/config/values/colors.dart';
-import 'package:flutter/material.dart';
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class RootApp extends StatefulWidget {
+class RootApp extends ConsumerStatefulWidget {
   @override
-  _RootAppState createState() => _RootAppState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _RootAppState();
 }
 
-class _RootAppState extends State<RootApp> {
+class _RootAppState extends ConsumerState<RootApp> {
   int pageIndex = 0;
-  List<Widget> pages = [
-    DailyPage(),
-    StatsPage(),
-    BudgetPage(),
-    ProfilePage(),
-    CreatBudgetPage()
-  ];
+  late MenuMobileProvider menuProvider;
 
   @override
   void initState() {
-    // TODO: implement initState
+    menuProvider = MenuMobileProvider();
     super.initState();
   }
 
   @override
-  void dispose() {
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final index = ref.watch(menuProvider.activeIndex);
+
     return Scaffold(
-        body: getBody(),
-        bottomNavigationBar: BottomBarWidget(),
+        body: IndexedStack(
+          index: pageIndex,
+          children: [
+            DailyPage(),
+            StatsPage(),
+            BudgetPage(),
+            ProfilePage(),
+            CreatBudgetPage()
+          ],
+        ),
+        bottomNavigationBar: BottomBarWidget(
+          index: index,
+          iconsData: ref.read(menuProvider.notifier).iconsData.toList(),
+          onTap: ref.read(menuProvider.notifier).changeTab,
+        ),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
-              selectedTab(4);
+              ref.read(menuProvider.notifier).changeTab(4);
             },
             child: Icon(
               Icons.add,
@@ -52,18 +56,5 @@ class _RootAppState extends State<RootApp> {
             ),
         floatingActionButtonLocation:
             FloatingActionButtonLocation.centerDocked);
-  }
-
-  Widget getBody() {
-    return IndexedStack(
-      index: pageIndex,
-      children: pages,
-    );
-  }
-
-  selectedTab(index) {
-    setState(() {
-      pageIndex = index;
-    });
   }
 }
