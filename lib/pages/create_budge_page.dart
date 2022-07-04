@@ -1,5 +1,5 @@
 import 'package:bulma_expense_manager/json/create_budget_json.dart';
-import 'package:bulma_expense_manager/theme/colors.dart';
+import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class CreatBudgetPage extends StatefulWidget {
@@ -15,7 +15,7 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey.withOpacity(0.05),
+      backgroundColor: kGrey.withOpacity(0.05),
       body: getBody(),
     );
   }
@@ -27,9 +27,9 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            decoration: BoxDecoration(color: white, boxShadow: [
+            decoration: BoxDecoration(color: kWhite, boxShadow: [
               BoxShadow(
-                color: grey.withOpacity(0.01),
+                color: kGrey.withOpacity(0.01),
                 spreadRadius: 10,
                 blurRadius: 3,
                 // changes position of shadow
@@ -48,7 +48,7 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: black),
+                            color: kBlack),
                       ),
                       Row(
                         children: [Icon(Icons.search)],
@@ -66,7 +66,7 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
               style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: black.withOpacity(0.5)),
+                  color: kBlack.withOpacity(0.5)),
             ),
           ),
           SizedBox(
@@ -93,16 +93,16 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                     width: 150,
                     height: 170,
                     decoration: BoxDecoration(
-                        color: white,
+                        color: kWhite,
                         border: Border.all(
                             width: 2,
                             color: activeCategory == index
-                                ? primary
+                                ? kPrimary
                                 : Colors.transparent),
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: grey.withOpacity(0.01),
+                            color: kGrey.withOpacity(0.01),
                             spreadRadius: 10,
                             blurRadius: 3,
                             // changes position of shadow
@@ -120,7 +120,7 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                               height: 40,
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: grey.withOpacity(0.15)),
+                                  color: kGrey.withOpacity(0.15)),
                               child: Center(
                                 child: Image.asset(
                                   categories[index]['icon'],
@@ -161,9 +161,9 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                 ),
                 TextField(
                   controller: _budgetName,
-                  cursorColor: black,
+                  cursorColor: kBlack,
                   style: TextStyle(
-                      fontSize: 17, fontWeight: FontWeight.bold, color: black),
+                      fontSize: 17, fontWeight: FontWeight.bold, color: kBlack),
                   decoration: InputDecoration(
                       hintText: "Enter Budget Name", border: InputBorder.none),
                 ),
@@ -187,11 +187,11 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                           ),
                           TextField(
                             controller: _budgetPrice,
-                            cursorColor: black,
+                            cursorColor: kBlack,
                             style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.bold,
-                                color: black),
+                                color: kBlack),
                             decoration: InputDecoration(
                                 hintText: "Enter Budget",
                                 border: InputBorder.none),
@@ -206,11 +206,11 @@ class _CreatBudgetPageState extends State<CreatBudgetPage> {
                       width: 50,
                       height: 50,
                       decoration: BoxDecoration(
-                          color: primary,
+                          color: kPrimary,
                           borderRadius: BorderRadius.circular(15)),
                       child: Icon(
                         Icons.arrow_forward,
-                        color: white,
+                        color: kWhite,
                       ),
                     ),
                   ],

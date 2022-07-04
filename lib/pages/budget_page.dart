@@ -1,6 +1,6 @@
 import 'package:bulma_expense_manager/json/budget_json.dart';
 import 'package:bulma_expense_manager/json/day_month.dart';
-import 'package:bulma_expense_manager/theme/colors.dart';
+import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class BudgetPage extends StatefulWidget {
@@ -13,7 +13,7 @@ class _BudgetPageState extends State<BudgetPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey.withOpacity(0.05),
+      backgroundColor: kGrey.withOpacity(0.05),
       body: getBody(),
     );
   }
@@ -25,9 +25,9 @@ class _BudgetPageState extends State<BudgetPage> {
       child: Column(
         children: [
           Container(
-            decoration: BoxDecoration(color: white, boxShadow: [
+            decoration: BoxDecoration(color: kWhite, boxShadow: [
               BoxShadow(
-                color: grey.withOpacity(0.01),
+                color: kGrey.withOpacity(0.01),
                 spreadRadius: 10,
                 blurRadius: 3,
                 // changes position of shadow
@@ -46,7 +46,7 @@ class _BudgetPageState extends State<BudgetPage> {
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: black),
+                            color: kBlack),
                       ),
                       Row(
                         children: [
@@ -88,13 +88,13 @@ class _BudgetPageState extends State<BudgetPage> {
                                 Container(
                                   decoration: BoxDecoration(
                                       color: activeDay == index
-                                          ? primary
-                                          : black.withOpacity(0.02),
+                                          ? kPrimary
+                                          : kBlack.withOpacity(0.02),
                                       borderRadius: BorderRadius.circular(5),
                                       border: Border.all(
                                           color: activeDay == index
-                                              ? primary
-                                              : black.withOpacity(0.1))),
+                                              ? kPrimary
+                                              : kBlack.withOpacity(0.1))),
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                         left: 12, right: 12, top: 7, bottom: 7),
@@ -104,8 +104,8 @@ class _BudgetPageState extends State<BudgetPage> {
                                           fontSize: 10,
                                           fontWeight: FontWeight.w600,
                                           color: activeDay == index
-                                              ? white
-                                              : black),
+                                              ? kWhite
+                                              : kBlack),
                                     ),
                                   ),
                                 )
@@ -130,11 +130,11 @@ class _BudgetPageState extends State<BudgetPage> {
                 child: Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
-                      color: white,
+                      color: kWhite,
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
-                          color: grey.withOpacity(0.01),
+                          color: kGrey.withOpacity(0.01),
                           spreadRadius: 10,
                           blurRadius: 3,
                           // changes position of shadow

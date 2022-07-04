@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bulma_expense_manager/pages/root_app.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart' show ProviderScope;
 
 void main() => runApp(const MyApp());
 
@@ -10,9 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: RootApp(),
+    return ProviderScope(
+      child: MaterialApp(
+        title: 'Material App',
+        debugShowCheckedModeBanner: false,
+        home: RootApp(),
+      ),
     );
   }
 }

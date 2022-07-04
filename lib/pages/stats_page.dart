@@ -1,5 +1,5 @@
 import 'package:bulma_expense_manager/json/day_month.dart';
-import 'package:bulma_expense_manager/theme/colors.dart';
+import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:bulma_expense_manager/widget/chart.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class _StatsPageState extends State<StatsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey.withOpacity(0.05),
+      backgroundColor: kGrey.withOpacity(0.05),
       body: getBody(),
     );
   }
@@ -28,13 +28,13 @@ class _StatsPageState extends State<StatsPage> {
     List expenses = [
       {
         "icon": Icons.arrow_back,
-        "color": blue,
+        "color": kBlue,
         "label": "Income",
         "cost": "\$6593.75"
       },
       {
         "icon": Icons.arrow_forward,
-        "color": red,
+        "color": kRed,
         "label": "Expense",
         "cost": "\$2645.50"
       }
@@ -43,9 +43,9 @@ class _StatsPageState extends State<StatsPage> {
       child: Column(
         children: [
           Container(
-            decoration: BoxDecoration(color: white, boxShadow: [
+            decoration: BoxDecoration(color: kWhite, boxShadow: [
               BoxShadow(
-                color: grey.withOpacity(0.01),
+                color: kGrey.withOpacity(0.01),
                 spreadRadius: 10,
                 blurRadius: 3,
                 // changes position of shadow
@@ -64,7 +64,7 @@ class _StatsPageState extends State<StatsPage> {
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: black),
+                            color: kBlack),
                       ),
                       Icon(Icons.search)
                     ],
@@ -95,13 +95,13 @@ class _StatsPageState extends State<StatsPage> {
                                 Container(
                                   decoration: BoxDecoration(
                                       color: activeDay == index
-                                          ? primary
-                                          : black.withOpacity(0.02),
+                                          ? kPrimary
+                                          : kBlack.withOpacity(0.02),
                                       borderRadius: BorderRadius.circular(5),
                                       border: Border.all(
                                           color: activeDay == index
-                                              ? primary
-                                              : black.withOpacity(0.1))),
+                                              ? kPrimary
+                                              : kBlack.withOpacity(0.1))),
                                   child: Padding(
                                     padding: const EdgeInsets.only(
                                         left: 12, right: 12, top: 7, bottom: 7),
@@ -111,8 +111,8 @@ class _StatsPageState extends State<StatsPage> {
                                           fontSize: 10,
                                           fontWeight: FontWeight.w600,
                                           color: activeDay == index
-                                              ? white
-                                              : black),
+                                              ? kWhite
+                                              : kBlack),
                                     ),
                                   ),
                                 )
@@ -134,11 +134,11 @@ class _StatsPageState extends State<StatsPage> {
               width: double.infinity,
               height: 250,
               decoration: BoxDecoration(
-                  color: white,
+                  color: kWhite,
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
-                      color: grey.withOpacity(0.01),
+                      color: kGrey.withOpacity(0.01),
                       spreadRadius: 10,
                       blurRadius: 3,
                       // changes position of shadow
@@ -200,11 +200,11 @@ class _StatsPageState extends State<StatsPage> {
                   width: (size.width - 60) / 2,
                   height: 170,
                   decoration: BoxDecoration(
-                      color: white,
+                      color: kWhite,
                       borderRadius: BorderRadius.circular(12),
                       boxShadow: [
                         BoxShadow(
-                          color: grey.withOpacity(0.01),
+                          color: kGrey.withOpacity(0.01),
                           spreadRadius: 10,
                           blurRadius: 3,
                           // changes position of shadow
@@ -226,7 +226,7 @@ class _StatsPageState extends State<StatsPage> {
                           child: Center(
                               child: Icon(
                             expenses[index]['icon'],
-                            color: white,
+                            color: kWhite,
                           )),
                         ),
                         Column(

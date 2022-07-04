@@ -1,6 +1,6 @@
 import 'package:bulma_expense_manager/json/daily_json.dart';
 import 'package:bulma_expense_manager/json/day_month.dart';
-import 'package:bulma_expense_manager/theme/colors.dart';
+import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class DailyPage extends StatefulWidget {
@@ -13,7 +13,7 @@ class _DailyPageState extends State<DailyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey.withOpacity(0.05),
+      backgroundColor: kGrey.withOpacity(0.05),
       body: getBody(),
     );
   }
@@ -24,9 +24,9 @@ class _DailyPageState extends State<DailyPage> {
       child: Column(
         children: [
           Container(
-            decoration: BoxDecoration(color: white, boxShadow: [
+            decoration: BoxDecoration(color: kWhite, boxShadow: [
               BoxShadow(
-                color: grey.withOpacity(0.01),
+                color: kGrey.withOpacity(0.01),
                 spreadRadius: 10,
                 blurRadius: 3,
                 // changes position of shadow
@@ -45,7 +45,7 @@ class _DailyPageState extends State<DailyPage> {
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: black),
+                            color: kBlack),
                       ),
                       Icon(Icons.search)
                     ],
@@ -78,13 +78,13 @@ class _DailyPageState extends State<DailyPage> {
                                   height: 30,
                                   decoration: BoxDecoration(
                                       color: activeDay == index
-                                          ? primary
+                                          ? kPrimary
                                           : Colors.transparent,
                                       shape: BoxShape.circle,
                                       border: Border.all(
                                           color: activeDay == index
-                                              ? primary
-                                              : black.withOpacity(0.1))),
+                                              ? kPrimary
+                                              : kBlack.withOpacity(0.1))),
                                   child: Center(
                                     child: Text(
                                       days[index]['day'],
@@ -92,8 +92,8 @@ class _DailyPageState extends State<DailyPage> {
                                           fontSize: 10,
                                           fontWeight: FontWeight.w600,
                                           color: activeDay == index
-                                              ? white
-                                              : black),
+                                              ? kWhite
+                                              : kBlack),
                                     ),
                                   ),
                                 )
@@ -127,7 +127,7 @@ class _DailyPageState extends State<DailyPage> {
                               height: 50,
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: grey.withOpacity(0.1),
+                                color: kGrey.withOpacity(0.1),
                               ),
                               child: Center(
                                 child: Image.asset(
@@ -148,7 +148,7 @@ class _DailyPageState extends State<DailyPage> {
                                     daily[index]['name'],
                                     style: TextStyle(
                                         fontSize: 15,
-                                        color: black,
+                                        color: kBlack,
                                         fontWeight: FontWeight.w500),
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -157,7 +157,7 @@ class _DailyPageState extends State<DailyPage> {
                                     daily[index]['date'],
                                     style: TextStyle(
                                         fontSize: 12,
-                                        color: black.withOpacity(0.5),
+                                        color: kBlack.withOpacity(0.5),
                                         fontWeight: FontWeight.w400),
                                     overflow: TextOverflow.ellipsis,
                                   ),
@@ -208,7 +208,7 @@ class _DailyPageState extends State<DailyPage> {
                     "Total",
                     style: TextStyle(
                         fontSize: 16,
-                        color: black.withOpacity(0.4),
+                        color: kBlack.withOpacity(0.4),
                         fontWeight: FontWeight.w600),
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -220,7 +220,7 @@ class _DailyPageState extends State<DailyPage> {
                     "\$1780.00",
                     style: TextStyle(
                         fontSize: 20,
-                        color: black,
+                        color: kBlack,
                         fontWeight: FontWeight.bold),
                     overflow: TextOverflow.ellipsis,
                   ),

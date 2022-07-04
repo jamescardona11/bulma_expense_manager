@@ -1,8 +1,8 @@
-import 'package:bulma_expense_manager/theme/colors.dart';
+import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-List<Color> gradientColors = [primary];
+List<Color> gradientColors = [kPrimary];
 
 LineChartData mainData() {
   return LineChartData(

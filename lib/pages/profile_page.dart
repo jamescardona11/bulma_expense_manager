@@ -1,4 +1,4 @@
-import 'package:bulma_expense_manager/theme/colors.dart';
+import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:flutter/material.dart';
 
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -16,7 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: grey.withOpacity(0.05),
+      backgroundColor: kGrey.withOpacity(0.05),
       body: getBody(),
     );
   }
@@ -28,9 +28,9 @@ class _ProfilePageState extends State<ProfilePage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            decoration: BoxDecoration(color: white, boxShadow: [
+            decoration: BoxDecoration(color: kWhite, boxShadow: [
               BoxShadow(
-                color: grey.withOpacity(0.01),
+                color: kGrey.withOpacity(0.01),
                 spreadRadius: 10,
                 blurRadius: 3,
                 // changes position of shadow
@@ -49,7 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: black),
+                            color: kBlack),
                       ),
                       Icon(Icons.settings)
                     ],
@@ -68,11 +68,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                 quarterTurns: -2,
                                 child: CircularPercentIndicator(
                                     circularStrokeCap: CircularStrokeCap.round,
-                                    backgroundColor: grey.withOpacity(0.3),
+                                    backgroundColor: kGrey.withOpacity(0.3),
                                     radius: 110.0,
                                     lineWidth: 6.0,
                                     percent: 0.53,
-                                    progressColor: primary),
+                                    progressColor: kPrimary),
                               ),
                               Positioned(
                                 top: 16,
@@ -102,7 +102,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
-                                  color: black),
+                                  color: kBlack),
                             ),
                             SizedBox(
                               height: 10,
@@ -112,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               style: TextStyle(
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500,
-                                  color: black.withOpacity(0.4)),
+                                  color: kBlack.withOpacity(0.4)),
                             ),
                           ],
                         ),
@@ -125,11 +125,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: primary,
+                        color: kPrimary,
                         borderRadius: BorderRadius.circular(12),
                         boxShadow: [
                           BoxShadow(
-                            color: primary.withOpacity(0.01),
+                            color: kPrimary.withOpacity(0.01),
                             spreadRadius: 10,
                             blurRadius: 3,
                             // changes position of shadow
@@ -149,7 +149,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.w500,
                                     fontSize: 12,
-                                    color: white),
+                                    color: kWhite),
                               ),
                               SizedBox(
                                 height: 10,
@@ -159,19 +159,19 @@ class _ProfilePageState extends State<ProfilePage> {
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
-                                    color: white),
+                                    color: kWhite),
                               ),
                             ],
                           ),
                           Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
-                                border: Border.all(color: white)),
+                                border: Border.all(color: kWhite)),
                             child: Padding(
                               padding: const EdgeInsets.all(13.0),
                               child: Text(
                                 "Update",
-                                style: TextStyle(color: white),
+                                style: TextStyle(color: kWhite),
                               ),
                             ),
                           )
@@ -200,9 +200,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 TextField(
                   controller: _email,
-                  cursorColor: black,
+                  cursorColor: kBlack,
                   style: TextStyle(
-                      fontSize: 17, fontWeight: FontWeight.bold, color: black),
+                      fontSize: 17, fontWeight: FontWeight.bold, color: kBlack),
                   decoration: InputDecoration(
                       hintText: "Email", border: InputBorder.none),
                 ),
@@ -218,9 +218,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 TextField(
                   controller: dateOfBirth,
-                  cursorColor: black,
+                  cursorColor: kBlack,
                   style: TextStyle(
-                      fontSize: 17, fontWeight: FontWeight.bold, color: black),
+                      fontSize: 17, fontWeight: FontWeight.bold, color: kBlack),
                   decoration: InputDecoration(
                       hintText: "Date of birth", border: InputBorder.none),
                 ),
@@ -237,9 +237,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 TextField(
                   obscureText: true,
                   controller: password,
-                  cursorColor: black,
+                  cursorColor: kBlack,
                   style: TextStyle(
-                      fontSize: 17, fontWeight: FontWeight.bold, color: black),
+                      fontSize: 17, fontWeight: FontWeight.bold, color: kBlack),
                   decoration: InputDecoration(
                       hintText: "Password", border: InputBorder.none),
                 ),
