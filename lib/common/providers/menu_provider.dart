@@ -35,20 +35,20 @@ class MenuMobileProvider {
           const [
             MenuItemUIM(
               label: 'Home',
-              icon: FontAwesomeIcons.house,
               route: '/home',
-              isSelected: true,
+              icon: FontAwesomeIcons.house,
             ),
             MenuItemUIM(
               label: 'Add',
+              route: '/add',
               icon: FontAwesomeIcons.arrowRightArrowLeft,
               isSpecial: true,
-              route: '/add',
+              isSelected: true,
             ),
             MenuItemUIM(
               label: 'Budget',
-              icon: FontAwesomeIcons.chartPie,
               route: '/budget',
+              icon: FontAwesomeIcons.chartPie,
             ),
           ],
         );

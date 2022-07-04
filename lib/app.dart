@@ -1,8 +1,8 @@
-import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:bulma_expense_manager/app/transaction/transaction_page.dart';
+import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:bulma_expense_manager/common/providers/menu_provider.dart';
 import 'package:bulma_expense_manager/common/widgets/bottom_bar_widget.dart';
-import 'package:bulma_expense_manager/pages/create_budge_page.dart';
 import 'package:bulma_expense_manager/pages/daily_page.dart';
 import 'package:bulma_expense_manager/pages/stats_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -61,7 +61,7 @@ class _AppState extends ConsumerState<App> {
               index: indexMenu,
               children: [
                 DailyPage(),
-                CreatBudgetPage(),
+                TransactionPage(),
                 StatsPage(),
               ],
             ),
