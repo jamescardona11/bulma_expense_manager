@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:bulma_expense_manager/app/transaction/transaction_page.dart';
 import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:bulma_expense_manager/common/providers/menu_provider.dart';
-import 'package:bulma_expense_manager/common/widgets/bottom_bar_widget.dart';
 import 'package:bulma_expense_manager/pages/daily_page.dart';
 import 'package:bulma_expense_manager/pages/stats_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'common/widgets/bottom_bar/bottom_bar_widget.dart';
 
 class App extends ConsumerStatefulWidget {
   const App({
@@ -36,20 +37,9 @@ class _AppState extends ConsumerState<App> {
           Container(
             width: size.width,
             height: size.height,
-            // padding: EdgeInsets.only(bottom: 20),
             color: kBlueBlack,
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: BottomBarWidget(
-                index: indexMenu,
-                backgroundColor: kBlueBlack,
-                items: ref.read(menuProvider.notifier).currentState,
-                onTap: ref.read(menuProvider.notifier).changeTab,
-              ),
-            ),
           ),
           Container(
-            margin: const EdgeInsets.only(bottom: 100),
             decoration: const BoxDecoration(
               color: kWhite,
               borderRadius: BorderRadius.only(
@@ -67,6 +57,12 @@ class _AppState extends ConsumerState<App> {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomBarWidget(
+        index: indexMenu,
+        backgroundColor: kBlueBlack,
+        items: ref.read(menuProvider.notifier).currentState,
+        onTap: ref.read(menuProvider.notifier).changeTab,
       ),
     );
   }

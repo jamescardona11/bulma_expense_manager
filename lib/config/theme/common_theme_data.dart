@@ -38,6 +38,11 @@ final headline3 = GoogleFonts.firaSans(
   fontWeight: FontWeight.w300,
 );
 
+final bodyText1 = GoogleFonts.firaSans(
+  color: kBlack,
+  fontWeight: FontWeight.w600,
+);
+
 final bodyText2 = GoogleFonts.firaSans(
   color: kBlack,
   fontWeight: FontWeight.w400,

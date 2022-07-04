@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'widgets/header_plants_widget.dart';
+import 'widgets/header_oval_widget.dart';
+import 'widgets/picker_card_widget.dart';
 
 class TransactionPage extends StatelessWidget {
   /// default constructor
@@ -12,13 +13,18 @@ class TransactionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Stack(
+      fit: StackFit.expand,
       children: [
-        HeaderPlantsWidget(),
-        // Container(
-        //   width: size.width,
-        //   height: 70,
-        //   color: kBlue,
-        // ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: HeaderOvalWidget(),
+        ),
+        Positioned(
+          top: 100,
+          left: 40,
+          right: 40,
+          child: PickerCardWidget(),
+        )
       ],
     );
   }

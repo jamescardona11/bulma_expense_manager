@@ -1,6 +1,6 @@
+import 'package:bulma_expense_manager/config/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:bulma_expense_manager/common/ui_models/menu_item.dart';
-import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'navigation_bar_item.dart';
@@ -15,7 +15,7 @@ class BottomBarWidget extends StatefulWidget {
     this.backgroundColor = kWhite,
     this.splashColor = kPrimary,
     this.activeColor = kPrimary,
-    this.inactiveColor = kGrey,
+    this.inactiveColor = kIconColors,
   }) : super(key: key);
 
   final int index;
@@ -164,7 +164,7 @@ class _SpecialItemWidget extends StatelessWidget {
       width: 45,
       height: 50,
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
+        borderRadius: BorderRadius.all(kRadius15),
         color: Colors.white,
       ),
       child: Center(

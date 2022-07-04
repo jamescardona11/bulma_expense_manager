@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart' show ProviderScope;
 
 import 'app.dart';
+import 'config/theme/app_theme.dart';
 
 void main() => runApp(const MyApp());
 
@@ -12,11 +13,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ProviderScope(
+    return ProviderScope(
       child: MaterialApp(
         title: 'Bulma App',
         debugShowCheckedModeBanner: false,
-        home: App(),
+        theme: AppTheme.getThemeByRule(),
+        home: const App(),
       ),
     );
   }
