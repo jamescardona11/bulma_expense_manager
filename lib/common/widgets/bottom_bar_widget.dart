@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:bulma_expense_manager/common/ui_models/menu_item.dart';
 import 'package:bulma_expense_manager/config/values/colors.dart';
-import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'navigation_bar_item.dart';
 
@@ -32,7 +33,7 @@ class BottomBarWidget extends StatefulWidget {
 class _BottomBarWidgetState extends State<BottomBarWidget>
     with TickerProviderStateMixin {
   late AnimationController _bubbleController;
-  final splashRadius = 24.0;
+  final splashRadius = 28.0;
 
   double _bubbleRadius = 0;
   double _iconScale = 1;
@@ -48,37 +49,35 @@ class _BottomBarWidgetState extends State<BottomBarWidget>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: _getItems(),
+        children: widget.items.map(
+          (item) {
+            final color =
+                item.isSelected ? widget.activeColor : widget.inactiveColor;
+            return NavigationBarItem(
+              isActive: item.isSelected,
+              bubbleRadius: _bubbleRadius,
+              maxBubbleRadius: splashRadius,
+              bubbleColor: widget.splashColor,
+              iconScale: _iconScale,
+              onTap: () => widget.onTap(widget.items.indexOf(item)),
+              child: Visibility(
+                visible: item.isSpecial,
+                replacement: Center(
+                  child: _DefaultIconWidget(
+                    iconData: item.icon,
+                    color: color,
+                  ),
+                ),
+                child: _SpecialItemWidget(
+                  iconData: item.icon,
+                  color: color,
+                ),
+              ),
+            );
+          },
+        ).toList(),
       ),
     );
-  }
-
-  List<Widget> _getItems() {
-    final items = <Widget>[];
-    for (int i = 0; i < widget.items.length; i++) {
-      final item = widget.items[i];
-      items.add(
-        NavigationBarItem(
-          isActive: item.isSelected,
-          bubbleRadius: _bubbleRadius,
-          maxBubbleRadius: splashRadius,
-          bubbleColor: widget.splashColor,
-          iconScale: _iconScale,
-          onTap: () => widget.onTap(i),
-          child: Builder(builder: (context) {
-            if (item.isSpecial) {
-              return _especialItem(
-                item.icon,
-                item.isSelected,
-              );
-            }
-            return _getIcon(item.icon, item.isSelected);
-          }),
-        ),
-      );
-    }
-
-    return items;
   }
 
   @override
@@ -94,26 +93,6 @@ class _BottomBarWidgetState extends State<BottomBarWidget>
       _startBubbleAnimation();
     }
   }
-
-  Widget _getIcon(IconData iconData, bool isSelected) {
-    final color = isSelected ? widget.activeColor : widget.inactiveColor;
-    return Icon(
-      iconData,
-      size: 24,
-      color: color,
-    );
-  }
-
-  Widget _especialItem(IconData iconData, bool isSelected) => Container(
-      width: 45,
-      height: 50,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(16)),
-        color: Colors.white,
-      ),
-      child: Center(
-        child: _getIcon(iconData, isSelected),
-      ));
 
   void _startBubbleAnimation() {
     _bubbleController = AnimationController(
@@ -145,5 +124,55 @@ class _BottomBarWidgetState extends State<BottomBarWidget>
       _bubbleController.reset();
     }
     _bubbleController.forward();
+  }
+}
+
+class _DefaultIconWidget extends StatelessWidget {
+  const _DefaultIconWidget({
+    Key? key,
+    required this.iconData,
+    required this.color,
+  }) : super(key: key);
+
+  final IconData iconData;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return FaIcon(
+      iconData,
+      size: 22,
+      color: color,
+    );
+  }
+}
+
+class _SpecialItemWidget extends StatelessWidget {
+  /// default constructor
+  const _SpecialItemWidget({
+    Key? key,
+    required this.iconData,
+    required this.color,
+  }) : super(key: key);
+
+  final IconData iconData;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 45,
+      height: 50,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(16)),
+        color: Colors.white,
+      ),
+      child: Center(
+        child: _DefaultIconWidget(
+          iconData: iconData,
+          color: color,
+        ),
+      ),
+    );
   }
 }

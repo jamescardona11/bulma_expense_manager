@@ -1,6 +1,8 @@
-import 'package:bulma_expense_manager/common/ui_models/menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:bulma_expense_manager/common/ui_models/menu_item.dart';
 
 class MenuMobileNotifier extends StateNotifier<List<MenuItemUIM>> {
   MenuMobileNotifier(List<MenuItemUIM> initialList) : super(initialList);
@@ -33,18 +35,19 @@ class MenuMobileProvider {
           const [
             MenuItemUIM(
               label: 'Home',
-              icon: Icons.calendar_month,
+              icon: FontAwesomeIcons.house,
               route: '/home',
               isSelected: true,
             ),
             MenuItemUIM(
               label: 'Add',
-              icon: Icons.add,
+              icon: FontAwesomeIcons.arrowRightArrowLeft,
+              isSpecial: true,
               route: '/add',
             ),
             MenuItemUIM(
               label: 'Budget',
-              icon: Icons.graphic_eq,
+              icon: FontAwesomeIcons.chartPie,
               route: '/budget',
             ),
           ],
