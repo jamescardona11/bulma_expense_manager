@@ -15,10 +15,7 @@ class MenuMobileNotifier extends StateNotifier<List<MenuItemUIM>> {
     ];
   }
 
-  void changeTab(int index) {
-    print('msg $index');
-    toggle(state[index].route);
-  }
+  void changeTab(int index) => toggle(state[index].route);
 
   Iterable<IconData> get iconsData => state.map((e) => e.icon);
 
@@ -43,20 +40,15 @@ class MenuMobileProvider {
               isSelected: true,
             ),
             MenuItemUIM(
-              label: 'Statistics',
-              icon: Icons.graphic_eq,
-              route: '/statistics',
+              label: 'Add',
+              icon: Icons.add,
+              route: '/add',
             ),
             MenuItemUIM(
               label: 'Budget',
-              icon: Icons.monetization_on_rounded,
+              icon: Icons.graphic_eq,
               route: '/budget',
             ),
-            MenuItemUIM(
-              label: 'Settings',
-              icon: Icons.settings,
-              route: '/config',
-            )
           ],
         );
       },
