@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 enum PickerOptionStatus {
   expense(0),
   income(1),
-  move(2);
+  transfer(2);
 
   final int value;
 
@@ -41,7 +41,7 @@ class _PickerCardWidgetState extends State<PickerCardWidget> {
             children: [
               Expanded(
                 child: _TextBox(
-                  label: 'Gasto',
+                  label: 'Expense',
                   icon: FontAwesomeIcons.moneyBillTrendUp,
                   iconColor: kRed,
                   onPressed: () {
@@ -52,7 +52,7 @@ class _PickerCardWidgetState extends State<PickerCardWidget> {
               ),
               Expanded(
                 child: _TextBox(
-                  label: 'Ingreso',
+                  label: 'Income',
                   icon: FontAwesomeIcons.sackDollar,
                   iconColor: kGreen,
                   onPressed: () {
@@ -63,13 +63,13 @@ class _PickerCardWidgetState extends State<PickerCardWidget> {
               ),
               Expanded(
                 child: _TextBox(
-                  label: 'Mover',
+                  label: 'Transfer',
                   icon: FontAwesomeIcons.vault,
                   onPressed: () {
-                    pickerOption.value = PickerOptionStatus.move;
+                    pickerOption.value = PickerOptionStatus.transfer;
                   },
                   iconColor: kBlue,
-                  isSelected: PickerOptionStatus.move == option,
+                  isSelected: PickerOptionStatus.transfer == option,
                 ),
               ),
             ],
