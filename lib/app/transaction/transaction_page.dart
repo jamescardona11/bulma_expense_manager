@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'widgets/header_oval_widget.dart';
 import 'widgets/picker_card_widget.dart';
@@ -21,10 +22,36 @@ class TransactionPage extends StatelessWidget {
         ),
         Positioned(
           top: 100,
-          left: 40,
-          right: 40,
-          child: PickerCardWidget(),
-        )
+          left: 0,
+          right: 0,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                const PickerCardWidget(),
+                Container(
+                  height: 100,
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 30,
+                      ),
+                      SizedBox(
+                        width: 100,
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "\$",
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
