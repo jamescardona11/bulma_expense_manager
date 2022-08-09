@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'widgets/header_oval.dart';
-import 'widgets/card_options.dart';
+import 'widgets/card_switch.dart';
 import 'widgets/icon_text.dart';
 
 class TransactionPage extends StatelessWidget {
@@ -69,14 +69,45 @@ class TransactionPage extends StatelessWidget {
               ),
             ),
           ),
-          IconTextWidget(
-            label: 'Wallet',
-          )
+          _FormExpenseOrIncomeWidget(),
         ],
       ),
     );
   }
 }
+
+class _FormExpenseOrIncomeWidget extends StatelessWidget {
+  const _FormExpenseOrIncomeWidget({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        IconTextWidget(
+          label: 'Wallet',
+        ),
+        IconTextWidget(
+          label: 'Wallet',
+        ),
+        IconTextWidget(
+          label: 'Wallet',
+        ),
+        IconTextWidget(
+          label: 'Wallet',
+        ),
+        IconTextWidget(
+          label: 'Wallet',
+        ),
+        IconTextWidget(
+          label: 'Wallet',
+        ),
+      ],
+    );
+  }
+}
+
 
           // Align(
           //   alignment: Alignment.topCenter,
