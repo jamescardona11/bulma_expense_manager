@@ -2,33 +2,33 @@ import 'package:bulma_expense_manager/config/values/values.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-enum PickerOptionStatus {
+enum CardOptionStatus {
   expense(0),
   income(1),
   transfer(2);
 
   final int value;
 
-  const PickerOptionStatus(this.value);
+  const CardOptionStatus(this.value);
 }
 
-class PickerCardWidget extends StatefulWidget {
+class CardOptionsWidget extends StatefulWidget {
   /// default constructor
-  const PickerCardWidget({
+  const CardOptionsWidget({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<PickerCardWidget> createState() => _PickerCardWidgetState();
+  State<CardOptionsWidget> createState() => _CardOptionsWidgetState();
 }
 
-class _PickerCardWidgetState extends State<PickerCardWidget> {
-  final pickerOption = ValueNotifier<PickerOptionStatus?>(null);
+class _CardOptionsWidgetState extends State<CardOptionsWidget> {
+  final pickerOption = ValueNotifier<CardOptionStatus?>(null);
 
   //padding: const EdgeInsets.symmetric(horizontal: 20),
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<PickerOptionStatus?>(
+    return ValueListenableBuilder<CardOptionStatus?>(
       valueListenable: pickerOption,
       builder: (_, option, child) => SizedBox(
         height: 80,
@@ -46,9 +46,9 @@ class _PickerCardWidgetState extends State<PickerCardWidget> {
                   icon: FontAwesomeIcons.moneyBillTrendUp,
                   iconColor: kRed,
                   onPressed: () {
-                    pickerOption.value = PickerOptionStatus.expense;
+                    pickerOption.value = CardOptionStatus.expense;
                   },
-                  isSelected: PickerOptionStatus.expense == option,
+                  isSelected: CardOptionStatus.expense == option,
                 ),
               ),
               Expanded(
@@ -57,9 +57,9 @@ class _PickerCardWidgetState extends State<PickerCardWidget> {
                   icon: FontAwesomeIcons.sackDollar,
                   iconColor: kGreen,
                   onPressed: () {
-                    pickerOption.value = PickerOptionStatus.income;
+                    pickerOption.value = CardOptionStatus.income;
                   },
-                  isSelected: PickerOptionStatus.income == option,
+                  isSelected: CardOptionStatus.income == option,
                 ),
               ),
               Expanded(
@@ -67,10 +67,10 @@ class _PickerCardWidgetState extends State<PickerCardWidget> {
                   label: 'Transfer',
                   icon: FontAwesomeIcons.vault,
                   onPressed: () {
-                    pickerOption.value = PickerOptionStatus.transfer;
+                    pickerOption.value = CardOptionStatus.transfer;
                   },
                   iconColor: kBlue,
-                  isSelected: PickerOptionStatus.transfer == option,
+                  isSelected: CardOptionStatus.transfer == option,
                 ),
               ),
             ],

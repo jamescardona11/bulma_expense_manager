@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'widgets/header_oval_widget.dart';
-import 'widgets/picker_card_widget.dart';
+import 'widgets/header_oval.dart';
+import 'widgets/card_options.dart';
+import 'widgets/icon_text.dart';
 
 class TransactionPage extends StatelessWidget {
   /// default constructor
@@ -67,6 +68,9 @@ class TransactionPage extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          IconTextWidget(
+            label: 'Wallet',
           )
         ],
       ),
