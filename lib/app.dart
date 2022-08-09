@@ -6,7 +6,7 @@ import 'package:bulma_expense_manager/pages/daily_page.dart';
 import 'package:bulma_expense_manager/pages/stats_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'common/widgets/bottom_bar/bottom_bar_widget.dart';
+import 'common/ui/widgets/bottom_bar/bottom_bar_widget.dart';
 
 class App extends ConsumerStatefulWidget {
   const App({

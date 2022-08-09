@@ -25,6 +25,7 @@ class PickerCardWidget extends StatefulWidget {
 class _PickerCardWidgetState extends State<PickerCardWidget> {
   final pickerOption = ValueNotifier<PickerOptionStatus?>(null);
 
+  //padding: const EdgeInsets.symmetric(horizontal: 20),
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<PickerOptionStatus?>(
