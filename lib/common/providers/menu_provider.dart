@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:bulma_expense_manager/common/ui_models/menu_item.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import 'package:bulma_expense_manager/common/ui_models/menu_item.dart';
 
 class MenuMobileNotifier extends StateNotifier<List<MenuItemUIM>> {
   MenuMobileNotifier(List<MenuItemUIM> initialList) : super(initialList);
@@ -65,8 +63,8 @@ class MenuMobileProvider {
   StateNotifierProvider<MenuMobileNotifier, List<MenuItemUIM>>
       get menuItemsProvider => _menuItemsProvider;
 
-  AlwaysAliveProviderBase<MenuMobileNotifier> get notifier =>
-      _menuItemsProvider.notifier;
+  // AlwaysAliveProviderBase<MenuMobileNotifier> get notifier =>
+  //     _menuItemsProvider.notifier;
 
   Provider<int> get activeIndex => _activeIndex;
 }

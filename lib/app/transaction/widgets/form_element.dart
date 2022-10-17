@@ -1,13 +1,13 @@
 import 'package:bulma_expense_manager/config/values/values.dart';
 import 'package:flutter/material.dart';
 
-class IconTextWidget extends StatelessWidget {
+class FormElementWidget extends StatelessWidget {
   /// default constructor
-  const IconTextWidget({
+  const FormElementWidget({
     Key? key,
     required this.label,
     this.trailing = const SizedBox(),
-    this.iconColor = kBlack,
+    this.iconColor = kPrimary,
     this.icon = Icons.question_mark_outlined,
   }) : super(key: key);
 
@@ -33,7 +33,7 @@ class IconTextWidget extends StatelessWidget {
                 ),
               ),
               Text(
-                'label',
+                label,
                 style: Theme.of(context).textTheme.headline2,
               ),
               Spacer(),

@@ -1,9 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:bulma_expense_manager/app/transaction/transaction_page.dart';
-import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:bulma_expense_manager/common/providers/menu_provider.dart';
+import 'package:bulma_expense_manager/config/values/colors.dart';
 import 'package:bulma_expense_manager/pages/daily_page.dart';
 import 'package:bulma_expense_manager/pages/stats_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'common/ui/widgets/bottom_bar/bottom_bar_widget.dart';
@@ -61,8 +61,8 @@ class _AppState extends ConsumerState<App> {
       bottomNavigationBar: BottomBarWidget(
         index: indexMenu,
         backgroundColor: kBlueBlack,
-        items: ref.read(menuProvider.notifier).currentState,
-        onTap: ref.read(menuProvider.notifier).changeTab,
+        items: ref.read(menuProvider.menuItemsProvider),
+        onTap: (index) {},
       ),
     );
   }
